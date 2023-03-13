@@ -32,7 +32,9 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject shot  = Instantiate(projectile, transform.position + (transform.forward * 2), shot.GetComponent<Rigidbody>().AddForce(transform.forward * 20000));
+            GameObject shot  = Instantiate(projectile, transform.position, Quaternion.identity);
+
+            shot.GetComponent<Rigidbody>().AddForce(Vector3.forward * 20000);
         }
 
         horizontalInput = Input.GetAxis("Horizontal");
